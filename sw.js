@@ -40,7 +40,8 @@ self.addEventListener('install', e => {
 
     let cache_inmutable = caches.open(INMUTABLE_CACHE)
                                 .then(cache => {
-                                    cache.addAll(APP_SHELL_INMUTABLE);
+                                    cache.addAll(APP_SHELL_INMUTABLE)
+                                        .catch(console.log("ERROR"));
                                 });
 
     
