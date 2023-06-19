@@ -41,7 +41,10 @@ self.addEventListener('install', e => {
     let cache_inmutable = caches.open(INMUTABLE_CACHE)
                                 .then(cache => {
                                     cache.addAll(APP_SHELL_INMUTABLE)
-                                        .catch(console.log("ERROR"));
+                                        .catch(error => {
+                                            console.log("Error en la carga del cache inmutable: ");
+                                            console.log(error);
+                                        });
                                 });
 
     
